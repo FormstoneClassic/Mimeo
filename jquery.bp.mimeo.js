@@ -1,21 +1,11 @@
 /*
  * Mimeo Plugin
  * @author Ben Plum
- * @version 0.0.3
+ * @version 0.0.4
  *
  * Copyright © 2013 Ben Plum <mr@benplum.com>
  * Released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
  */
-
-/*
-	<picture width="500" height="500">
-	   <source media="(max-width: 45em)" src="large.jpg">
-	   <source media="(max-width: 18em)" src="med.jpg">
-	   <source src="small.jpg">
-	   <img src="small.jpg" alt="">
-	   <p>Accessible text</p>
-	</picture>
-*/
  
 if (jQuery) (function($) {
 	var $window = $(window),
@@ -24,11 +14,11 @@ if (jQuery) (function($) {
 	
 	// Default Options
 	var options = {
-		rubberband: false
 	};
 	
 	// Public Methods
 	var pub = {
+		
 		respond: function() {
 			$pictures.each(function() {
 				var $target = $(this),
@@ -87,8 +77,8 @@ if (jQuery) (function($) {
 		
 		pub.update();
 		
-		if (options.rubberband) {
-			// Bind breakpoint events
+		if ($.rubberband != undefined) {
+			// Bind Rubberband breakpoint events
 			$window.on("snap", pub.respond);
 		}
 	}
@@ -100,7 +90,6 @@ if (jQuery) (function($) {
 		} else if (typeof method === 'object' || !method) {
 			return _init.apply(this, arguments);
 		}
-		
 		return this;
 	};
 })(jQuery);
