@@ -17,6 +17,16 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="http://www.benplum.com/js/demo.js"></script>
 		
+		<!--[if LTE IE 9]>
+			<script src="ie/html5.js"></script>
+		<![endif]-->
+		<!--[if IE 9]>
+			<script src="ie/matchMedia.ie9.js"></script>
+		<![endif]-->
+		<!--[if LTE IE 8]>
+			<script src="ie/matchMedia.ie8.js"></script>
+		<![endif]-->
+		
 		<script src="../jquery.bp.mimeo.js"></script>
 		
 		<style>
@@ -90,7 +100,33 @@
 						<img src="http://www.benplum.com/images/placeholder/300x300">
 					</picture>
 				</div>
-								
+				
+				<!-- IE -->
+				<h2>IE Support</h2>
+				<p>When supporting IE you will need to include a <a href="https://gist.github.com/benplum/8045366" target="_blank">HTML5 enabler</a> and matchMedia polyfill (<a href="https://gist.github.com/benplum/8045336" target="_blank">IE 8</a>, <a href="https://gist.github.com/benplum/8045327" target="_blank">IE 9</a>). IE 9 also has a strange bug where <code>source</code> tags will only exist inside of a <code>video</code> tag. Instead of <code>source</code> tags, use a <code>span</code> with the class <code>mimeo-source</code>:</p>
+				
+				<pre><code class="language-javascript">$.mimeo();</code></pre>
+				<pre><code class="language-markup">&lt;picture&gt;
+	&lt;span class="mimeo-source" media="(min-width: 500px)" src="image-med.jpg"&gt;&lt;/span&gt;
+	&lt;span class="mimeo-source" media="(min-width: 740px)" src="image-large.jpg"&gt;&lt;/span&gt;
+	&lt;span class="mimeo-source" media="(min-width: 980px)" src="image-x-large.jpg"&gt;&lt;/span&gt;
+	&lt;span class="mimeo-source" src="image-small.jpg"&gt;&lt;/span&gt;
+	&lt;img src="image-small.jpg"&gt;
+&lt;/picture&gt;</code></pre>
+				
+				<h5>Demo</h5>
+				<p>Note: This example will work in all browsers, but is the only example that will work in IE 9.</p>
+				<div class="clear_fix">
+					<picture>
+						<span class="mimeo-source" media="(max-width: Infinity)" src="http://www.benplum.com/images/placeholder/1000x300"></span>
+						<span class="mimeo-source" media="(max-width: 980px)" src="http://www.benplum.com/images/placeholder/750x300"></span>
+						<span class="mimeo-source" media="(max-width: 740px)" src="http://www.benplum.com/images/placeholder/500x300"></span>
+						<span class="mimeo-source" media="(max-width: 500px)" src="http://www.benplum.com/images/placeholder/300x300"></span>
+						<span class="mimeo-source" src="http://www.benplum.com/images/placeholder/300x300"></span>
+						<img src="http://www.benplum.com/images/placeholder/300x300">
+					</picture>
+				</div>
+				
 			</div>
 		</article>
 	</body>

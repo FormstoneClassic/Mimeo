@@ -1,5 +1,5 @@
 /* 
- * Mimeo v0.0.5 - 2013-12-19 
+ * Mimeo v0.0.6 - 2013-12-19 
  * A jQuery plugin for responsive images. 
  * http://www.benplum.com/formstone/mimeo/ 
  * 
@@ -25,7 +25,7 @@
 			$pictures = $("picture");
 			
 			$pictures.each(function(i, picture) {
-				var $sources = $(picture).find("source");
+				var $sources = $(picture).find("source, .mimeo-source");
 				
 				for (var j = 0, count = $sources.length; j < count; j++) {
 					var $source = $sources.eq(j),
@@ -63,7 +63,7 @@
 		$pictures.each(function() {
 			var $target = $(this),
 				$image = $target.find("img"),
-				$sources = $target.find("source"),
+				$sources = $target.find("source, .mimeo-source"),
 				index = false;
 			
 			for (var i = 0, count = $sources.length; i < count; i++) {
