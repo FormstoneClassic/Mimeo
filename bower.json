@@ -1,29 +1,12 @@
 {
-	"name": "Mimeo",
-	"version": "0.0.4",
-	"description": "A jQuery plugin for responsive images.",
-	"keywords": [
-		"javascript",
-		"jquery",
-		"image",
-		"picture",
-		"responsive",
-		"html5",
-		"benplum"
-	],
-	"authors": [
-		"Ben Plum"
-	],
-	"license": "MIT",
-	"homepage": "http://www.benplum.com/projects/mimeo/",
-	"main": [
-		"jquery.bp.mimeo.min.js"
-	],
-	"ignore": [
-		"*.json"
-	],
-	"dependencies": {
-		"jquery": ">= 1.7.0"
-	},
-	"devDependencies": {}
+  "name": "Mimeo",
+  "version": "0.0.5",
+  "description": "A jQuery plugin for responsive images.",
+  "author": {
+    "name": "Ben Plum",
+    "email": "mr@benplum.com",
+    "url": "http://www.benplum.com"
+  },
+  "license": "MIT",
+  "homepage": "http://www.benplum.com/formstone/mimeo/"
 }
