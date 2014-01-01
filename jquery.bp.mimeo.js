@@ -1,9 +1,16 @@
 /* 
- * Mimeo v0.0.6 - 2013-12-23 
+ * Mimeo v0.0.7 - 2014-01-01 
  * A jQuery plugin for responsive images. 
  * http://www.benplum.com/formstone/mimeo/ 
  * 
- * Copyright 2013 Ben Plum; MIT Licensed 
+ * Copyright 2014 Ben Plum; MIT Licensed 
+ */ 
+
+/** 
+ * @plugin 
+ * @name Mimeo 
+ * @description A jQuery plugin for responsive images. 
+ * @version 0.0.7 
  */ 
 
 ;(function ($, window) {
@@ -11,16 +18,17 @@
 	
 	var $window = $(window),
 		$pictures;
-		/* nativeSupport = (document.createElement('picture') && window.HTMLPictureElement) */
+		//nativeSupport = (document.createElement('picture') && window.HTMLPictureElement)
 	
-	// Default Options
-	var options = {
-	};
-	
-	// Public Methods
 	var pub = {
 		
-		// Update watched elements
+		/**
+		 * @method 
+		 * @name update
+		 * @description Updates internal cache of active picture elements
+		 * @param name <default> [type] "Description string"
+		 * @return [type]
+		 */ 
 		update: function() {
 			$pictures = $("picture");
 			
@@ -43,22 +51,27 @@
 		}
 	};
 	
-	// Private Methods
-	
-	// Init 
+	/**
+	 * @method private
+	 * @name _init
+	 * @description Initialize plugin
+	 * @param opts [object] "Initialization options"
+	 */ 
 	function _init(opts) {
-		$.extend(options, opts || {});
+		//$.extend(options, opts || {});
 		
-		/*
-		if (nativeSupport) {
-			return;
-		}
-		*/
+		//if (nativeSupport) {
+		//	return;
+		//}
 		
 		pub.update();
 	}
 	
-	// Handle event
+	/**
+	 * @method private
+	 * @name _respond
+	 * @description Handle media query changes
+	 */ 
 	function _respond() {
 		$pictures.each(function() {
 			var $target = $(this),
@@ -83,8 +96,7 @@
 			$image.attr("src", $sources.eq(index).attr("src"));
 		});
 	}
-	
-	// Define Plugin
+	 
 	$.mimeo = function(method) {
 		if (pub[method]) {
 			return pub[method].apply(this, Array.prototype.slice.call(arguments, 1));

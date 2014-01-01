@@ -34,15 +34,21 @@ module.exports = function(grunt) {
 				undef:     true,
 				validthis: true
 			},
-			files: ['src/<%= pkg.codename %>.js']
+			files: [ 'src/<%= pkg.codename %>.js' ]
 		},
 		// Concat
 		concat: {
 			options: {
-				banner: '<%= meta.banner %>'
+				banner: '<%= meta.banner %>' + 
+						'/** \n' +
+						' * @plugin \n' +
+						' * @name <%= pkg.name %> \n' +
+						' * @description <%= pkg.description %> \n' +
+						' * @version <%= pkg.version %> \n' +
+						' */ \n\n'
 			},
 			js: {
-				src: 'src/<%= pkg.codename %>.js',
+				src:  'src/<%= pkg.codename %>.js',
 				dest: '<%= pkg.codename %>.js'
 			}/* ,
 			css: {
@@ -67,7 +73,7 @@ module.exports = function(grunt) {
 			options: {
 				source: grunt.file.readJSON('package.json'),
 				overrides: {
-					name: '<%= pkg.id %>',
+					name:     '<%= pkg.id %>',
 					keywords: '<%= pkg.keywords %>',
 					homepage: '<%= pkg.homepage %>',
 					docs: 	  '<%= pkg.homepage %>',

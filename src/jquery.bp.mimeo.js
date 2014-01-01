@@ -3,16 +3,17 @@
 	
 	var $window = $(window),
 		$pictures;
-		/* nativeSupport = (document.createElement('picture') && window.HTMLPictureElement) */
+		//nativeSupport = (document.createElement('picture') && window.HTMLPictureElement)
 	
-	// Default Options
-	var options = {
-	};
-	
-	// Public Methods
 	var pub = {
 		
-		// Update watched elements
+		/**
+		 * @method 
+		 * @name update
+		 * @description Updates internal cache of active picture elements
+		 * @param name <default> [type] "Description string"
+		 * @return [type]
+		 */ 
 		update: function() {
 			$pictures = $("picture");
 			
@@ -35,22 +36,27 @@
 		}
 	};
 	
-	// Private Methods
-	
-	// Init 
+	/**
+	 * @method private
+	 * @name _init
+	 * @description Initialize plugin
+	 * @param opts [object] "Initialization options"
+	 */ 
 	function _init(opts) {
-		$.extend(options, opts || {});
+		//$.extend(options, opts || {});
 		
-		/*
-		if (nativeSupport) {
-			return;
-		}
-		*/
+		//if (nativeSupport) {
+		//	return;
+		//}
 		
 		pub.update();
 	}
 	
-	// Handle event
+	/**
+	 * @method private
+	 * @name _respond
+	 * @description Handle media query changes
+	 */ 
 	function _respond() {
 		$pictures.each(function() {
 			var $target = $(this),
@@ -75,8 +81,7 @@
 			$image.attr("src", $sources.eq(index).attr("src"));
 		});
 	}
-	
-	// Define Plugin
+	 
 	$.mimeo = function(method) {
 		if (pub[method]) {
 			return pub[method].apply(this, Array.prototype.slice.call(arguments, 1));
