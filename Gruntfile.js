@@ -34,27 +34,34 @@ module.exports = function(grunt) {
 				undef:     true,
 				validthis: true
 			},
-			files: [ 'src/<%= pkg.codename %>.js' ]
+			files: ['src/<%= pkg.codename %>.js']
 		},
 		// Concat
 		concat: {
-			options: {
-				banner: '<%= meta.banner %>' + 
-						'/** \n' +
-						' * @plugin \n' +
-						' * @name <%= pkg.name %> \n' +
-						' * @description <%= pkg.description %> \n' +
-						' * @version <%= pkg.version %> \n' +
-						' */ \n\n'
-			},
 			js: {
-				src:  'src/<%= pkg.codename %>.js',
-				dest: '<%= pkg.codename %>.js'
-			}/* ,
+				options: {
+					banner: '<%= meta.banner %>' + 
+							'/** \n' +
+							' * @plugin \n' +
+							' * @name <%= pkg.name %> \n' +
+							' * @description <%= pkg.description %> \n' +
+							' * @version <%= pkg.version %> \n' +
+							' */ \n\n'
+				},
+				files: {
+					'<%= pkg.codename %>.js': [ 'src/<%= pkg.codename %>.js' ]
+				}
+			}
+			/* ,
 			css: {
-				src: 'src/<%= pkg.codename %>.css',
-				dest: '<%= pkg.codename %>.css'
-			} */
+				options: {
+					banner: '<%= meta.banner %>' 
+				},
+				files: {
+					'<%= pkg.codename %>.css': [ 'src/<%= pkg.codename %>.css' ]
+				}
+			}
+			*/
 		},
 		// Uglify
 		uglify: {
@@ -96,6 +103,23 @@ module.exports = function(grunt) {
 		}
 	});
 	
+	// Readme
+	grunt.registerTask('buildReadme', 'Build Formstone README.md file.', function () {
+		var pkg = grunt.file.readJSON('package.json'),
+			destination = "README.md",
+			markdown = '<a href="http://gruntjs.com" target="_blank"><img src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt"></a> \n' +
+					   '# ' + pkg.name + ' \n\n' +
+					   pkg.description + ' \n\n' +
+					   '- [Demo](' + pkg.demo + ') \n' +
+					   '- [Documentation](' + pkg.homepage + ') \n\n' +
+					   '#### Bower Support \n' +
+					   '`bower install ' + pkg.name + '`';
+		
+		grunt.file.write(destination, markdown);
+		grunt.log.writeln('File "' + destination + '" created.');
+	});
+	
+	// Load tasks
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -103,6 +127,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-npm2bower-sync');
 	
 	// Default task.
-	grunt.registerTask('default', [ 'jshint', 'concat', 'uglify', 'jquerymanifest', 'sync' ]);
-
+	grunt.registerTask('default', [ 'jshint', 'concat', 'uglify', 'jquerymanifest', 'sync', 'buildReadme' ]);
+	
 };

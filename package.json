@@ -1,8 +1,8 @@
 {
   "name": "Mimeo",
   "id": "mimeo",
-  "codename": "jquery.bp.mimeo",
-  "version": "0.0.7",
+  "codename": "jquery.fs.mimeo",
+  "version": "0.0.8",
   "description": "A jQuery plugin for responsive images.",
   "keywords": [
     "image",
@@ -15,6 +15,7 @@
     "type": "git",
     "url": "https://github.com/benplum/Mimeo"
   },
+  "demo": "http://www.benplum.com/components/Mimeo/demo/index.html",
   "homepage": "http://www.benplum.com/formstone/mimeo/",
   "license": "MIT",
   "author": {
