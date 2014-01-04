@@ -11,7 +11,7 @@
 		 * @method 
 		 * @name update
 		 * @description Updates cache of active picture elements
-		 * @example $.mimeo(update"");
+		 * @example $.mimeo("update);
 		 */ 
 		update: function() {
 			$pictures = $("picture");
