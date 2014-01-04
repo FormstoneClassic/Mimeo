@@ -1,6 +1,6 @@
 {
   "name": "mimeo",
-  "version": "0.0.8",
+  "version": "3.0.0",
   "title": "Mimeo",
   "author": {
     "name": "Ben Plum",
@@ -16,7 +16,7 @@
   "dependencies": {
     "jquery": ">=1.7"
   },
-  "homepage": "http://www.benplum.com/formstone/mimeo/",
+  "homepage": "http://formstone.it/mimeo/",
   "description": "A jQuery plugin for responsive images.",
   "keywords": [
     "image",
@@ -25,8 +25,8 @@
     "html5",
     "benplum"
   ],
-  "docs": "http://www.benplum.com/formstone/mimeo/",
-  "demo": "http://www.benplum.com/formstone/mimeo/",
+  "docs": "http://formstone.it/mimeo/",
+  "demo": "http://formstone.it/mimeo/",
   "download": "https://github.com/benplum/Mimeo",
   "bugs": "https://github.com/benplum/Mimeo/issues"
 }

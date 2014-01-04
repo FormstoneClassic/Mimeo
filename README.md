@@ -3,8 +3,8 @@
 
 A jQuery plugin for responsive images. 
 
-- [Demo](http://www.benplum.com/components/Mimeo/demo/index.html) 
-- [Documentation](http://www.benplum.com/formstone/mimeo/) 
+- [Demo](http://formstone.it/components/Mimeo/demo/index.html) 
+- [Documentation](http://formstone.it/mimeo/) 
 
 #### Bower Support 
 `bower install Mimeo`

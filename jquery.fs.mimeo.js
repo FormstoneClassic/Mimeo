@@ -1,7 +1,7 @@
 /* 
- * Mimeo v0.0.8 - 2014-01-04 
+ * Mimeo v3.0.0 - 2014-01-04 
  * A jQuery plugin for responsive images. 
- * http://www.benplum.com/formstone/mimeo/ 
+ * http://formstone.it/mimeo/ 
  * 
  * Copyright 2014 Ben Plum; MIT Licensed 
  */ 
@@ -10,7 +10,7 @@
  * @plugin 
  * @name Mimeo 
  * @description A jQuery plugin for responsive images. 
- * @version 0.0.8 
+ * @version 3.0.0 
  */ 
 
 ;(function ($, window) {
