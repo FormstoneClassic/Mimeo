@@ -36,6 +36,11 @@
 	};
 	
 	/**
+	 * @events
+	 * @event change.mimeo "Image source change; trigged on target <picture> element"
+	 */
+	
+	/**
 	 * @method private
 	 * @name _init
 	 * @description Initialize plugin
@@ -78,6 +83,8 @@
 			}
 			
 			$image.attr("src", $sources.eq(index).attr("src"));
+			
+			$target.trigger("change.mimeo");
 		});
 	}
 	 

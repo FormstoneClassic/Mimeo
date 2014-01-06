@@ -2,13 +2,16 @@
   "name": "Mimeo",
   "id": "mimeo",
   "codename": "jquery.fs.mimeo",
-  "version": "3.0.0",
-  "description": "A jQuery plugin for responsive images.",
+  "version": "3.0.1",
+  "description": "A jQuery plugin for responsive images. Part of the Formstone Library.",
   "keywords": [
     "image",
     "picture",
     "responsive",
     "html5",
+    "javascript", 
+  	"jquery", 
+  	"formstone",
     "benplum"
   ],
   "repository": {
