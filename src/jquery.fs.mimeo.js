@@ -2,8 +2,8 @@
 	"use strict";
 
 	var $window = $(window),
-		$pictures;
-		//nativeSupport = (document.createElement('picture') && window.HTMLPictureElement)
+		$pictures = null,
+		pixelRatio = (typeof window.devicePixelRatio !== "undefined") ? Math.ceil(window.devicePixelRatio) : 1;
 
 	var pub = {
 
@@ -14,14 +14,39 @@
 		 * @example $.mimeo("update");
 		 */
 		update: function() {
-			$pictures = $("picture");
-
-			$pictures.each(function(i, picture) {
+			$pictures = $("picture").each(function(i, picture) {
 				var $sources = $(picture).find("source, .mimeo-source");
 
 				for (var j = 0, count = $sources.length; j < count; j++) {
 					var $source = $sources.eq(j),
-						media = $source.attr("media");
+						media = $source.attr("media"),
+						srcset = $source.attr("srcset");
+
+					// Check for srcset
+					if (srcset) {
+						var sources = {},
+							ratio = 1;
+
+						// Check each source
+						srcset = srcset.split(",");
+						for (var k in srcset) {
+							if (srcset.hasOwnProperty(k)) {
+								var s = srcset[k].trim().split(" "),
+									r = parseInt(s[1], 10);
+
+								// Get the largest source possible
+								if (r > ratio && r <= pixelRatio) {
+									ratio = r;
+								}
+
+								sources[r] = s[0];
+							}
+						}
+
+						// Store all soruces and set target src attribute
+						$source.data("mimeo-sources", sources)
+							   .attr("src", sources[ratio]);
+					}
 
 					if (media) {
 						var _mq = window.matchMedia(media.replace(Infinity, "100000px"));
@@ -71,10 +96,8 @@
 			for (var i = 0, count = $sources.length; i < count; i++) {
 				var match = $sources.eq(i).data("mimeo-match");
 
-				if (match) {
-					if (match.matches) {
-						index = i;
-					}
+				if (match && match.matches) {
+					index = i;
 				}
 			}
 
