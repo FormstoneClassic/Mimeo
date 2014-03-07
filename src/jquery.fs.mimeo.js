@@ -14,6 +14,16 @@
 		 * @example $.mimeo("update");
 		 */
 		update: function() {
+			// Fix IE9 shenanigans - http://www.w3.org/community/respimg/2012/03/15/polyfilling-picture-without-the-overhead/#comment-212
+			$("video > picture").each (function(i, picture) {
+				var $picture = $(this),
+					$video = $picture.parent("video");
+
+				$video.before($picture)
+					  .remove();
+			});
+
+			// Then parse the pictures
 			$pictures = $("picture").each(function(i, picture) {
 				var $sources = $(picture).find("source, .mimeo-source");
 
