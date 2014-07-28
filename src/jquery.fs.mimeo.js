@@ -41,7 +41,7 @@
 						srcset = srcset.split(",");
 						for (var k in srcset) {
 							if (srcset.hasOwnProperty(k)) {
-								var s = srcset[k].trim().split(" "),
+								var s = srcset[k].replace(/^\s+|\s+$/g, '').split(" "),
 									r = parseInt(s[1], 10);
 
 								// Get the largest source possible
