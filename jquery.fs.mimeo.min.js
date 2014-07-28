@@ -1,5 +1,5 @@
 /* 
- * Mimeo v3.0.5 - 2014-07-28 
+ * Mimeo v3.0.7 - 2014-07-28 
  * A jQuery plugin for responsive images. Part of the Formstone Library. 
  * http://formstone.it/mimeo/ 
  * 
