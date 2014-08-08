@@ -10,7 +10,7 @@
 	 * @param selector [string] <'picture'> "Target Selector"
 	 */
 	var options = {
-
+			selector: "picture"
 		};
 
 	var pub = {

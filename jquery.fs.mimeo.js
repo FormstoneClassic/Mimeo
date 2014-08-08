@@ -1,5 +1,5 @@
 /* 
- * Mimeo v3.0.8 - 2014-08-08 
+ * Mimeo v3.0.9 - 2014-08-08 
  * A jQuery plugin for responsive images. Part of the Formstone Library. 
  * http://formstone.it/mimeo/ 
  * 
@@ -18,7 +18,7 @@
 	 * @param selector [string] <'picture'> "Target Selector"
 	 */
 	var options = {
-
+			selector: "picture"
 		};
 
 	var pub = {
