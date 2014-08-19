@@ -1,3 +1,7 @@
+### Important: This project has been discontinued. Checkout [Picturefill](https://github.com/scottjehl/picturefill) for a more robust responsive image solution.
+
+<br><hr><br>
+
 <a href="http://gruntjs.com" target="_blank"><img src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt"></a> 
 # Mimeo 
 
